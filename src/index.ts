@@ -4,12 +4,10 @@ const express = require("express");
 const serverapp = express();
 const port = process.env.PORT || 3000;
 
-serverapp.get("/", (req, res) => {
-  res.json({
-    user: "Theodore",
-    email: "admin@google.com",
-    password: "1234567890",
-  });
+import { us } from "./routes/users";
+
+serverapp.get("/", (req: any, res: any) => {
+  res.status(200).json(us);
 });
 
 serverapp.listen(port, () => {
